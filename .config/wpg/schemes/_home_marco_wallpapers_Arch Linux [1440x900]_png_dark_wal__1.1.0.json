@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/marco/wallpapers/Arch Linux [1440x900].png",
+    "alpha": "100",
+    "special": {
+        "background": "#0B0C11",
+        "foreground": "#cbc7e3",
+        "cursor": "#cbc7e3"
+    },
+    "colors": {
+        "color0": "#0B0C11",
+        "color1": "#262C5C",
+        "color2": "#3B3F63",
+        "color3": "#4F2E61",
+        "color4": "#465694",
+        "color5": "#AC67A7",
+        "color6": "#44BCDA",
+        "color7": "#cbc7e3",
+        "color8": "#8e8b9e",
+        "color9": "#262C5C",
+        "color10": "#3B3F63",
+        "color11": "#4F2E61",
+        "color12": "#465694",
+        "color13": "#AC67A7",
+        "color14": "#44BCDA",
+        "color15": "#cbc7e3"
+    }
+}

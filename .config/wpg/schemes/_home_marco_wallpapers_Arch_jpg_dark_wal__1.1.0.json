@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/marco/wallpapers/Arch.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f0310",
+        "foreground": "#aeccc1",
+        "cursor": "#aeccc1"
+    },
+    "colors": {
+        "color0": "#0f0310",
+        "color1": "#404A4E",
+        "color2": "#911B4E",
+        "color3": "#A15842",
+        "color4": "#F45E59",
+        "color5": "#A7BD65",
+        "color6": "#F7974B",
+        "color7": "#aeccc1",
+        "color8": "#798e87",
+        "color9": "#404A4E",
+        "color10": "#911B4E",
+        "color11": "#A15842",
+        "color12": "#F45E59",
+        "color13": "#A7BD65",
+        "color14": "#F7974B",
+        "color15": "#aeccc1"
+    }
+}

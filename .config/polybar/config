@@ -1,0 +1,363 @@
+
+[colors]
+background = #66000000
+;background = ${xrdb:background}
+foreground = #66adb1b9   
+
+color0 = ${xrdb:color0}
+color1 = ${xrdb:color1}
+color2 = ${xrdb:color2}
+color3 = ${xrdb:color3}
+color4 = ${xrdb:color4}
+color5 = ${xrdb:color5}
+color6 = ${xrdb:color6}
+color7 = ${xrdb:color7}
+color8 = ${xrdb:color8}
+color9 = ${xrdb:color9}
+color10 = ${xrdb:color10}
+color11 = ${xrdb:color11}
+color12 = ${xrdb:color12}
+color13 = ${xrdb:color13}
+color14 = ${xrdb:color14}
+color15 = ${xrdb:color15}
+dark-light = #66272A2B 
+active-light = #66313435
+
+[bar/mybar]
+wm-restack=i3
+tray-position = right
+tray-padding =5
+monitor = DP-1
+;                                                 change this if it doesn't work check display name with xrandr
+width =  100%;98.7%
+height = 30
+padding-left =0
+padding-right =2
+background = #66000000
+;background = $colors.background}
+foreground = #66adb1b9
+;foreground = ${colors.foreground}
+bottom = false
+border-top-size = 5
+border-bottom-size = 5
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+offset-x = 0%;0.75%
+offset-y = 0%;0.5%
+fixed-center = true
+line-size = 3
+
+
+modules-left = powermenu i3
+modules-center =  
+modules-right =     wireless-network alsa battery round-left cpu temperature round-right  mem xbacklight round-left time round-right   
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
+font-1 = JetBrainsMono Nerd Font:size=18;5
+font-2 = Material Design Icons:style=Bold:size=13;3
+;font-3 = unifont:fontformat=truetype:size=13:antialias=true;
+
+
+
+[module/round-left]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #2b2f37
+
+[module/round-right]
+type = custom/text
+content = %{T3}%{T-}
+content-foreground = #2b2f37
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 50
+
+format-background = #2b2f37
+format-foreground = #989cff
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+format-padding = 0
+label =%temperature%
+;format-suffix = "°C"
+format-suffix = " "
+;label-warn = %temperature%
+;ramp-0 =  "󰜗" 
+ramp-0 =  "" 
+;ramp-0 =  "°C" 
+;ramp-foreground = #ff0000
+;label-padding-right = 1
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+; Use fuzzy (partial) matching on labels when assigning 
+; icons to workspaces
+; Example: code;♚ will apply the icon to all workspaces 
+; containing 'code' in the label
+; Default: false
+fuzzy-match = true
+
+ws-icon-0 = 1;♚
+ws-icon-1 = 2;♛
+ws-icon-2 = 3;♜
+ws-icon-3 = 4;♝
+ws-icon-4 = 5;♞
+ws-icon-default = ♟
+
+label-dimmed-underline = ${root.background}
+
+; Available tags:
+;   <label-state> (default) - gets replaced with <label-(focused|unfocused|visible|urgent)>
+;   <label-mode> (default)
+format = <label-state> <label-mode>
+
+; Available tokens:
+;   %mode%
+; Default: %mode%
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-background = #e60053
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-focused =  %index%
+label-focused-foreground = #ffffff
+label-focused-background = #3f3f3f
+label-focused-underline = #fba922
+label-focused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-unfocused = %index%
+label-unfocused-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-visible = %index%
+label-visible-underline = #555555
+label-visible-padding = 4
+
+; Available tokens:
+;   %name%
+;   %icon%
+;   %index%
+;   %output%
+; Default: %icon%  %name%
+label-urgent = %index%
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 4
+
+; Separator in between workspaces
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = #ffb52a
+
+
+
+[module/wireless-network]
+	type = internal/network
+	interface = wlan0
+	interval = 3.0
+	unknown-as-up = true
+	format-connected-background  = ${colors.background}
+	format-connected-foreground  = ${colors.foreground}
+	format-connected-padding = 1
+	format-connected = %{A1:$HOME/.../scripts/rofi-network-manager/rofi-network-manager.sh:}<ramp-signal> <label-connected>%{A}
+	label-connected = %essid%/%local_ip%
+	format-disconnected-background  = ${colors.background}
+	format-disconnected-foreground = ${colors.foreground}
+	format-disconnected-padding = 1
+	format-disconnected = %{A1:$HOME/.../scripts/rofi-network-manager/rofi-network-manager.sh:}<label-disconnected>%{A}
+	label-disconnected =""
+	ramp-signal-0 = "󰤯"
+	ramp-signal-1 = "󰤟"
+	ramp-signal-2 = "󰤢"
+	ramp-signal-3 = "󰤥"
+	ramp-signal-4 = "󰤨"
+	ramp-signal-foreground = ${colors.white}
+
+[module/alsa]
+type = internal/alsa
+format-volume = <label-volume> <bar-volume>
+label-volume = " "  
+label-volume-foreground = ${colors.foregound}
+
+format-muted-foreground = ${colors.foreground}
+label-muted = 󰚙
+
+format-muted-padding = 1
+format-muted-background = #2b2f37
+
+bar-volume-width = 15
+bar-volume-foreground-0 = #61afef
+bar-volume-foreground-1 = #61afef
+bar-volume-foreground-2 = #61afef
+bar-volume-foreground-3 = #61afef
+bar-volume-foreground-4 = #61afef
+bar-volume-foreground-5 = #61afef
+bar-volume-foreground-6 = #61afef
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-foreground = #61afef
+bar-volume-indicator-font = 2
+bar-volume-fill = - 
+bar-volume-fill-foreground = #61afef
+bar-volume-fill-font = 2
+bar-volume-empty = -
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground}
+format-volume-padding = 1
+
+[module/time]
+type = internal/date
+interval = 1 ;60
+format = <label>
+;time-alt = %a, %b %d%{F-}
+date = %I:%M:%S %p %a, %b %d
+
+format-foreground = #61afef
+format-background = #2b2f37
+
+
+;content = %date%%time%
+;label = %date%%time%
+
+format-suffix = " "
+format-prefix = " "
+
+
+[module/mem]
+type = custom/script
+exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
+format = <label>
+format-prefix = "  ﬙ " 
+label = %output% MB
+label-padding = 1
+;format-prefix-foreground = #d19a66
+format-foreground = #d19a66
+
+format-suffix = " "
+
+[module/powermenu]
+type = custom/text 
+content =" " 
+content-padding =1
+click-left = rofi -show power-menu -modi power-menu:rofi-power-menu &
+content-foreground =  #61afef
+
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+format-connected =  <label-connected>
+label-connected = " 󰤪  " 
+label-connected-foreground = #A3BE8C
+ 
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+label-charging = %percentage%%
+
+format-charging-padding = 1
+format-charging-foreground = ${colors.color4}
+
+format-discharging = <ramp-capacity> <label-discharging>
+label-discharging = %percentage%%
+
+format-discharging-foreground = ${colors.foreground}
+
+format-full-prefix = "   "
+label-full = %percentage%% 
+format-full-suffix = " "
+
+;format-full-prefix-foreground = #A0E8A2
+format-full-foreground = #A0E8A2
+format-full-prefix-padding = 0
+format-foreground = ${colors.color4}
+format-background = #2b2f37 
+
+;label-discharging-foreground = ${colors.foreground}
+label-discharging-foreground = #A0E8A2  
+
+ramp-capacity-foreground =  #A0E8A2
+label-charging-foreground = ${colors.foreground}
+
+ramp-capacity-0 = "   " 
+ramp-capacity-1 = "   " 
+ramp-capacity-2 = "   " 
+ramp-capacity-3 = "   " 
+ramp-capacity-4 = "   "
+
+animation-charging-0 = "   " 
+animation-charging-1 = "   " 
+animation-charging-2 = "   " 
+animation-charging-3 = "   " 
+animation-charging-4 = "   "
+
+animation-charging-foreground = #DF8890
+animation-charging-framerate = 910 
+format-discharging-padding = 1
+
+
+[module/volume]
+type = custom/script
+exec = amixer get Master | awk '$0~/%/{print $4}' | tr -d '[]'
+format = <label>
+internal = 5.0
+label = %output% 
+label-foreground = #BF616A
+label-padding = 1
+
+[module/xbacklight]
+type = internal/xbacklight
+format = <label>
+format-prefix = "  "
+format-suffix = " "
+label = %percentage%
+format-prefix-foreground = #61afef
+label-foreground =   #D8DEE9
+format-padding = 1
+
+
+
+[module/cpu]
+type = internal/cpu
+interval = 1.5
+
+format-prefix = " "
+format-suffix = "   " 
+format = <label> 
+
+label = CPU %percentage%%
+
+format-background = #2b2f37
+format-foreground = #989cff
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...

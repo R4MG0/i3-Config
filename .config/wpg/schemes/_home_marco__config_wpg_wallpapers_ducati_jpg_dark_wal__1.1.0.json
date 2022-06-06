@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/marco/.config/wpg/wallpapers/ducati.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#121213",
+        "foreground": "#ece3db",
+        "cursor": "#ece3db"
+    },
+    "colors": {
+        "color0": "#121213",
+        "color1": "#989AA5",
+        "color2": "#DEBEB0",
+        "color3": "#9CAAC4",
+        "color4": "#ADB6CC",
+        "color5": "#BAC2D7",
+        "color6": "#D6D4D8",
+        "color7": "#ece3db",
+        "color8": "#a59e99",
+        "color9": "#989AA5",
+        "color10": "#DEBEB0",
+        "color11": "#9CAAC4",
+        "color12": "#ADB6CC",
+        "color13": "#BAC2D7",
+        "color14": "#D6D4D8",
+        "color15": "#ece3db"
+    }
+}
